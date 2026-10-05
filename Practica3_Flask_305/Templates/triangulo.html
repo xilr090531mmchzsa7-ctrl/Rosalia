@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triángulo</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+
+<body>
+
+    <header class="encabezado">
+
+        <h1>Triángulo</h1>
+
+        <nav class="menu">
+            <a href="/">Triángulo</a>
+        </nav>
+
+    </header>
+
+    <main class="contenedor">
+
+        <section class="tarjeta-operacion">
+
+            <h2>Área y perímetro de un triángulo</h2>
+
+            <form method="POST" action="/calcular">
+
+                <label>Base:</label>
+                <input type="number" name="base" step="any" required>
+
+                <br><br>
+
+                <label>Altura:</label>
+                <input type="number" name="altura" step="any" required>
+
+                <br><br>
+
+                
+                <br><br>
+
+                <button type="submit">Calcular</button>
+
+            </form>
+
+            {% if area is defined %}
+                <p>El área es: {{ area }}</p>
+            {% endif %}
+
+            {% if perimetro is defined %}
+                <p>El perímetro es: {{ perimetro }}</p>
+            {% endif %}
+
+        </section>
+
+    </main>
+
+</body>
+</html>
